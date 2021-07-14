@@ -1,0 +1,103 @@
+@font-face {
+    src: url('./fonts/pixeled/Pixeled.ttf');
+    font-family:Pixeled;
+}
+
+@font-face {
+    src: url('./fonts/ZCOOLQingKeHuangYou-Regular.ttf');
+    font-family:ZCOOL;
+}
+
+$green: rgb(95, 204, 113);
+
+body {
+    background: rgb(11, 10, 27);
+    color:$green;
+    overflow:hidden;
+    margin:0;padding:0;
+}
+
+.container {
+    height:100vh;
+    width:100vw;
+    display:flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.rulebook-outer {
+    position:relative;
+    font-family:Pixeled;
+    font-size:20px;
+    width:800px;
+    height:100vh;  
+    background: rgb(0,0,0);
+     background: rgb(35,61,136);
+background: linear-gradient(180deg, rgba(35,61,136,1) 0%, rgba(5,12,43,1) 100%); 
+    .rulebook-text,
+    img.bookimg {
+        position:absolute;
+        width:700px;
+        height:496px;
+        top:50%;left:50%;
+        transform:translate(-50%, -50%);
+    }
+    .rulebook-text {
+        z-index:100;
+        display:flex;
+        flex-direction:row;
+        align-items:stretch;
+        .rulebook-text-page {
+            flex:1;
+            text-align:center;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content:center;
+            padding:0 30px;
+            .rulebook-text-header {
+                font-family:Pixeled;
+                font-size:22px;
+                color:rgb(97, 44, 66);
+            }
+            .rulebook-text-body {
+                font-family:ZCOOL;
+                font-size:38px;
+                color:rgb(110, 61, 49);
+                margin-bottom:80px;
+                margin-top:50px;
+            }
+        }
+    }
+    .page-nav {
+        position:absolute;
+        bottom:70px;
+        img {
+            height:50px;
+            cursor:pointer;
+            &:hover {
+                transform:translateY(-5px);
+            }
+        }
+        &.left {
+            left:40px;
+        }
+        &.right {
+            right:40px;
+        }
+    }
+}
+
+.context-wrapper {
+    flex:1;
+    position:relative;
+    .input-wrapper {
+        font-family:ZCOOL;
+        font-size:30px;
+        color:orange;
+    }
+    .prompt {
+        color:$green;
+    }
+}
+
