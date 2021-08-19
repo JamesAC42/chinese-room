@@ -107,7 +107,7 @@ class Play extends Component {
         return(
             <div class="container">
 
-                <Link to="/" className="home">
+                <Link to="/chineseroom/" className="home">
                     Back to Intro
                 </Link>
 
@@ -155,7 +155,7 @@ class Play extends Component {
                                     RESTART
                                     <BiUndo style={{verticalAlign:"middle"}}/>
                                 </div>
-                                <Link to="/" className="back-home">
+                                <Link to="/chineseroom/" className="back-home">
                                     HOME
                                     <BiHomeAlt style={{verticalAlign:"middle"}}/>
                                 </Link>
@@ -182,7 +182,7 @@ class Play extends Component {
                                     RESTART
                                     <BiUndo style={{verticalAlign:"middle"}}/>
                                 </div>
-                                <Link to="/" className="back-home">
+                                <Link to="/chineseroom/" className="back-home">
                                     HOME
                                     <BiHomeAlt style={{verticalAlign:"middle"}}/>
                                 </Link>
