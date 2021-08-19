@@ -1,0 +1,179 @@
+body {
+    background:rgb(20, 25, 37) !important;
+}
+.stripe {
+    position:fixed;
+    top:50%;left:50%;
+    transform:translate(-50%, -50%) rotate(45deg);
+    height:200vw;
+    width:50vw;
+    background:rgb(9, 12, 19);
+    z-index:100;
+}
+
+.article-container {
+
+    position:fixed;
+    height:100vh;width:100vw;
+    top:0;left:0;
+
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+
+    overflow-y:scroll;
+    overflow-x:hidden;
+    z-index:5000;
+
+    .article-inner {
+
+        position:relative;
+        width:60vw;
+        min-width:300px;
+        font-family:ZCOOL;
+        
+        box-shadow: 0px 5px 16px -1px #000000c4;
+        height:fit-content;
+        height:-moz-fit-content;
+
+        @media screen and (max-width:1200px) {
+            width:75vw;
+        }
+        @media screen and (max-width:900px) {
+            width:100vw;
+        }
+
+        .home-header {
+
+            position:relative;
+            height:30vh;
+
+            min-height:165px;
+
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+
+            padding:0 20px;
+            background:rgba(15, 15, 22, 0.836);
+
+            color:rgb(75, 255, 129);
+            h1, h3, h4 {
+                margin:0;
+                text-align:center;
+            }
+            h1 { font-size:2.4rem; }
+            h3 { font-size:1.8rem; }
+            h4 { font-size:1.4rem; }
+
+            svg { 
+                transform:translateY(-4px);
+                margin:0 5px;
+                color:rgb(255, 131, 255);
+            }
+
+            .link-outer {
+                position:absolute;
+                bottom:0;right:0;
+                margin:10px;
+                font-size:2rem;
+                svg { 
+                    color:rgb(69, 87, 189);
+                }
+                @media screen and (max-width:330px) {
+                    font-size:1.2rem;
+                    margin:5px;
+                }
+            }
+
+            @media screen and (max-width:1400px) {
+                h1 {font-size:2rem;}
+                h3 {font-size:1.4rem;}
+                h4 {font-size:1.2rem;}
+            }
+            @media screen and (max-width:500px) {
+                h1 {font-size:1.6rem;}
+                h3 {font-size:1.2rem;}
+                h4 {font-size:1rem;}
+            }
+            @media screen and (max-width:330px) {
+                h1 {font-size:1.4rem;}
+            }
+        }
+
+        .article-body {
+
+            padding:20px;
+            height:fit-content;
+            height:-moz-fit-content;
+            font-size:1.2rem;
+
+            background:rgba(28, 47, 88, 0.658);
+
+            font-family:SpaceGrotesk;
+
+            h3 {
+                color:rgb(174, 178, 243); 
+            }
+
+            p { 
+                color:rgb(195, 216, 255);
+                text-indent:50px;
+            }
+            
+            @media screen and (max-width:1400px) {
+                font-size:1rem;
+            }
+            @media screen and (max-width:500px) {
+                font-size:0.8rem;
+            }
+
+            .game-link {
+                width:100%;
+                padding:10px;
+                display:flex;
+                flex-direction: row;
+                .game-link-button {
+                    display:block;
+                    padding:10px;
+                    border:2px solid rgb(110, 219, 88);
+                    border-radius:10px;
+                    color:rgb(110, 219, 88);
+                    margin-left:auto;
+                    margin-right:20px;
+                    text-decoration: none;
+                    svg {transform:translateY(-1px);}
+                    cursor:pointer;
+                    transition:all .1s ease-in-out;
+                    font-size:1rem;
+                    &:hover {
+                        background:rgb(110, 219, 88);
+                        color:rgb(37, 44, 107);
+                    }
+                    @media screen and (max-width:500px) {
+                        padding:6px;
+                        border-width:1px;
+                        font-size:0.8rem;
+                    }
+                }
+            }
+        }
+
+        .bibliography {
+            padding:0 20px;
+            color:rgb(71, 194, 136);
+            text-align:center;
+            h3 {
+                font-size:1.5rem;
+            }
+            .citation {
+                list-style-type: disc;
+                width:100%;
+                margin:10px 0;
+                a { color:rgb(74, 221, 111); }
+            }
+            margin-bottom:80px;
+        }
+    }
+
+}

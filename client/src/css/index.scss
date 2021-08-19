@@ -1,0 +1,23 @@
+@font-face {
+    src: url('../fonts/pixeled/Pixeled.ttf');
+    font-family:Pixeled;
+}
+
+@font-face {
+    src: url('../fonts/ZCOOLQingKeHuangYou-Regular.ttf');
+    font-family:ZCOOL;
+}
+
+@font-face {
+    src: url('../fonts/SpaceGrotesk-VariableFont_wght.ttf');
+    font-family:SpaceGrotesk;
+}
+
+$green: rgb(95, 204, 113);
+
+body {
+    background: rgb(11, 10, 27);
+    color:$green;
+    overflow:hidden;
+    margin:0;padding:0;
+}

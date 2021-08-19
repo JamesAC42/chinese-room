@@ -18,6 +18,7 @@ body {
 }
 
 .container {
+    position:relative;
     height:100vh;
     width:100vw;
     display:flex;
@@ -34,13 +35,20 @@ body {
     background: rgb(0,0,0);
      background: rgb(35,61,136);
 background: linear-gradient(180deg, rgba(35,61,136,1) 0%, rgba(5,12,43,1) 100%); 
+
+/*
+    position:absolute;
+    top:0;left:0;
+    transform:translate(-100%, 0);
+*/
+
     .rulebook-text,
     img.bookimg {
         position:absolute;
         width:700px;
         height:496px;
         top:50%;left:50%;
-        transform:translate(-50%, -50%);
+        transform:translate(-50%, -50%) scale(1);
     }
     .rulebook-text {
         z-index:100;
@@ -66,6 +74,18 @@ background: linear-gradient(180deg, rgba(35,61,136,1) 0%, rgba(5,12,43,1) 100%);
                 color:rgb(110, 61, 49);
                 margin-bottom:80px;
                 margin-top:50px;
+                padding:10px;
+                border-radius:10px;
+                &.body-response {
+                    transition:all .1s ease-in-out;
+                    //cursor:pointer;
+                    &:hover {
+                        background:rgb(93, 231, 146);
+                        background:rgb(62, 202, 116);
+                        color:#fff;
+                        outline:3px solid rgb(196, 255, 221);
+                    }
+                }
             }
         }
     }
@@ -73,17 +93,21 @@ background: linear-gradient(180deg, rgba(35,61,136,1) 0%, rgba(5,12,43,1) 100%);
         position:absolute;
         bottom:70px;
         img {
+            transition:transform .1s cubic-bezier(0.075, 0.82, 0.165, 1);
             height:50px;
             cursor:pointer;
-            &:hover {
-                transform:translateY(-5px);
-            }
         }
         &.left {
             left:40px;
+            img:hover {
+                transform:translateX(-5px);
+            }
         }
         &.right {
             right:40px;
+            img:hover {
+                transform:translateX(5px);
+            }
         }
     }
 }
@@ -91,13 +115,138 @@ background: linear-gradient(180deg, rgba(35,61,136,1) 0%, rgba(5,12,43,1) 100%);
 .context-wrapper {
     flex:1;
     position:relative;
-    .input-wrapper {
-        font-family:ZCOOL;
-        font-size:30px;
-        color:orange;
-    }
+    display:flex;
+    flex-direction:column;
+    align-items: stretch;
     .prompt {
         color:$green;
+        font-family:Pixeled;
+        font-size:1.3rem;
+        padding:0 10px;
+        border-bottom:1px solid rgb(72, 84, 155);
+    }
+    .chatlog {
+        flex:1;
+        display:flex;
+        flex-direction:column;
+        align-items:stretch;
+        overflow-y:scroll;
+        overflow-x:hidden;
+        border-bottom:1px solid rgb(72, 84, 155);
+        .chatlog-row {
+            .chat-bubble {
+                font-family:ZCOOL;
+                font-size:1.6rem;
+                padding:10px;
+                width:fit-content;
+                width:-moz-fit-content;
+                max-width:300px;
+                border-radius:7px;
+                margin:10px;
+                position:relative;
+                &.sender {
+                    margin-left:auto;
+                    background:rgb(44, 49, 94);
+                    img {
+                        transform:rotateY(180deg);
+                    }
+                }
+                &.receiver {
+                    margin-right:auto;
+                    background:rgb(32, 53, 122);
+                }
+                background:none !important;
+                .chat-bubble-message {
+                    position:absolute;
+                    white-space:nowrap;
+                    margin:0 20px;
+                    font-size:1.25rem;
+                    top:50%;left:50%;
+                    color:rgb(43, 48, 126);
+                }
+                &.sender {
+                    .chat-bubble-message {
+                        transform:translate(calc(-50% - 20px), calc(-50% - 5px));
+                    }
+                }
+                &.receiver {
+                    .chat-bubble-message {
+                        transform:translate(calc(-50% - 10px), calc(-50% - 5px));
+                    }
+                }
+                
+            }
+        }
+    }
+    .input-wrapper {
+        position:relative;
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content:center;
+        background:rgb(44, 51, 99);
+        gap:20px;
+        padding:20px 0;
+        .input-button {
+            position:relative;
+            width:fit-content;
+            width:-moz-fit-content;
+            height:fit-content;
+            height:-moz-fit-content;
+            margin:0px 0;
+            flex-basis:100px;
+            cursor:pointer;
+            .input-background,
+            .input-text { 
+                position:absolute;
+                top:0;left:0;
+            }
+            .input-background {
+                transition:transform .1s ease-in-out;
+                transform:translate(-10px, 10px);
+                z-index:1;
+            }
+            .input-foreground {
+                position:relative;
+                z-index:100;
+            }
+            .input-foreground,
+            .input-text {
+                transition:transform .1s ease-in-out;
+            }
+            .input-text {
+                height:100%;
+                width:100%;
+                display:flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items:center;
+                font-family:ZCOOL;
+                font-size:2.5rem;
+                color:rgb(18, 33, 65);
+                z-index:200;
+            }
+
+            &:hover {
+                .input-foreground,
+                .input-text {
+                    transform:translate(5px, -5px);
+                }
+
+                @keyframes shimmer {
+                    0% {color:rgb(180, 231, 255);}
+                    25% {color:rgb(34, 45, 145);}
+                    50% {color:rgb(109, 223, 208);}
+                    75% {color:rgb(81, 104, 209);}
+                    100% {color:rgb(183, 232, 255);}
+                }
+                .input-text {
+                    animation: shimmer 3s cubic-bezier(0.175, 0.885, 0.32, 1.15) infinite;
+                }
+            }
+
+            filter: brightness(0.9) contrast(0.8) hue-rotate(260deg);
+        }
     }
 }
 
