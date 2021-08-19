@@ -55,7 +55,7 @@ class Home extends Component {
                         To get a better feel for what it would be like to be the person inside the Chinese room, click the button below labeled "Continue to Game".
                         </p>
                         <div className="game-link">
-                            <Link to="/play" className="game-link-button">
+                            <Link to="/chineseroom/play/" className="game-link-button">
                                 Continue to Game
                                 <BsFillPlayFill style={{verticalAlign:"middle"}}/>
                             </Link>
